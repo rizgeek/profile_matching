@@ -95,7 +95,7 @@
 					</div>
 					<div class="form-group">
 						<label for="nomor_hp">Nomor Hp Pengguna</label>
-						<input type="text" class="form-control" id="nomor_hp" name="nomor_hp"
+						<input type="number" class="form-control" id="nomor_hp" name="nomor_hp"
 							placeholder="Nomor Hp Pengguna" autocomplete="off" required>
 					</div>
 

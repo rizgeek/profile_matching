@@ -31,6 +31,9 @@
     <link href="<?= base_url("assets/") ?>plugins/datatables/css/jquery.datatables_themeroller.css" rel="stylesheet" type="text/css"/>	
     <link href="<?= base_url("assets/") ?>plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css"/>
 
+	<!-- jquery -->
+	<script src="<?=base_url("assets/")?>plugins/jquery/jquery-3.1.0.min.js"></script>
+
 	<!-- sweat alert -->
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

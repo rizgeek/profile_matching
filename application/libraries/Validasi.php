@@ -13,7 +13,7 @@ class Validasi
                 ];
                 break;
 
-            case 'pengguna' :
+            case 'pengguna':
                 $aturanValidasi = [
                     ['field' => 'nama', 'label' => 'nama', 'rules' => 'required|min_length[3]'],
                     ['field' => 'nomor_hp', 'label' => 'nomor_hp', 'rules' => 'required|min_length[8]'],
@@ -25,7 +25,7 @@ class Validasi
                 ];
                 break;
 
-            case 'update_pengguna' :
+            case 'update_pengguna':
                 $aturanValidasi = [
                     ['field' => 'kd_pengguna', 'label' => 'kd_pengguna', 'rules' => 'required|min_length[10]'],
                     ['field' => 'nama', 'label' => 'nama', 'rules' => 'required|min_length[3]'],
@@ -36,7 +36,7 @@ class Validasi
                 ];
                 break;
 
-            case 'tas' :
+            case 'tas':
                 $aturanValidasi = [
                     ['field' => 'nama_tas', 'label' => 'nama_tas', 'rules' => 'required|min_length[3]'],
                     ['field' => 'merk', 'label' => 'merk', 'rules' => 'required|min_length[3]'],
@@ -45,13 +45,22 @@ class Validasi
                 ];
                 break;
 
-            case 'update_tas' :
+            case 'update_tas':
                 $aturanValidasi = [
                     ['field' => 'kd_tas', 'label' => 'kd_tas', 'rules' => 'required|min_length[10]'],
                     ['field' => 'nama_tas', 'label' => 'nama_tas', 'rules' => 'required|min_length[3]'],
                     ['field' => 'merk', 'label' => 'merk', 'rules' => 'required|min_length[3]'],
                     ['field' => 'warna', 'label' => 'warna', 'rules' => 'required|min_length[3]'],
                     ['field' => 'bahan', 'label' => 'bahan', 'rules' => 'required|min_length[3]'],
+                ];
+                break;
+
+            case 'kriteria':
+                $aturanValidasi = [
+                    ['field' => 'kriteria', 'label' => 'kriteria', 'rules' => 'required|min_length[3]'],
+                    ['field' => 'bobot', 'label' => 'bobot', 'rules' => 'required|min_length[1]'],
+                    ['field' => 'core', 'label' => 'core', 'rules' => 'required|min_length[1]'],
+                    ['field' => 'secondary', 'label' => 'secondary', 'rules' => 'required|min_length[1]'],
                 ];
                 break;
 

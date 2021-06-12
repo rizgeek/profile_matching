@@ -12,7 +12,7 @@
 				<?php if(!$menu[$i]["child"]): ?>
 				<li>
 					<a href="<?=$menu[$i]["url"]?>">
-						<i class="menu-icon <?=$menu[$i]["icon"]?>"></i><span>Dashboard</span>
+						<i class="menu-icon <?=$menu[$i]["icon"]?>"></i><span><?=$menu[$i]["label"]?></span>
 					</a>
 				</li>
 				<?php else: ?>

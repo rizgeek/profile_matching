@@ -155,6 +155,40 @@ class Admin extends CI_Controller {
         }
     }
 
+    public function dataKriteria()
+    {
+        $data['data'] = $this->model->ambilSemuaData('tb_kriteria')->result();;
+        $this->tools->view('5_dataKriteria',$data);
+    }
+
+    public function createKriteria()
+    {
+        $data['bobot'] = $this->model->query('SELECT sum(bobot) as bobot from tb_kriteria')->row();
+        $this->tools->view('4_tambahKriteria',$data);
+    }
+
+    public function prosesCreateKriteria()
+    {
+        $this->form_validation->set_rules($this->validasi->cekInput('kriteria'));
+        
+        if ($this->form_validation->run() == TRUE) {
+            $data = array(
+                'kd_kriteria' => $this->tools->generateKode('tb_kriteria','kd_kriteria','PMK'),
+                'kriteria' => $this->input->post('kriteria'),
+                'bobot' => $this->input->post('bobot'),
+                'core' => $this->input->post('core'),
+                'secondary' => $this->input->post('secondary')
+            );
+
+            $this->model->inputData('tb_kriteria',$data);
+            
+            $this->tools->Notif('Berhasil','Data Berhasil Disimpn','success','Admin/createKriteria');
+        } else {
+            $this->tools->Notif('Gagal','Periksa Kemabali data yang anda inputkan','error','Admin/createKriteria');
+        }
+        
+    }
+
 }
 
 /* End of file Admin.php */

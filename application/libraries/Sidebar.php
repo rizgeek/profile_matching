@@ -9,29 +9,19 @@ class Sidebar
             array('label' => 'Tambah Pengguna','url' => base_url('Admin/createPengguna')),
         );
 
-        $dataTas = array(
-            array('label' => 'Data Tas','url' => base_url('Admin/dataTas')),
-            array('label' => 'Tambah Tas','url' => '#'),
-        );
-
-        
-        $dataTarget = array(
-            array('label' => 'Data Target','url' => '#'),
-            array('label' => 'Tambah Target','url' => '#'),
-        );
-
         $dataKriteria = array(
-            array('label' => 'Data Kriteria','url' => '#'),
-            array('label' => 'Tambah Kriteria','url' => '#'),
+            array('label' => 'Data Kriteria','url' => base_url('Admin/dataKriteria')),
+            array('label' => 'Tambah Kriteria','url' => base_url('Admin/createKriteria')),
         );
+
 
 
         $menu = array(
             array('child' => FALSE, 'child_menu' => NULL, 'url' => base_url('Admin'),'icon' => 'fa fa-home', 'label' => 'Dashboard'),
             array('child' => TRUE, 'child_menu' => $dataPengguna, 'url' => '#','icon' => 'fa fa-users', 'label' => 'Pengguna'),
-            array('child' => TRUE, 'child_menu' => $dataTas, 'url' => '#','icon' => 'fa fa-shopping-bag', 'label' => 'Tas'),
-            array('child' => TRUE, 'child_menu' => $dataTarget, 'url' => '#','icon' => 'fa fa-bullseye', 'label' => 'Target'),
+            array('child' => FALSE, 'child_menu' => NULL, 'url' =>  base_url('Admin/dataTas'),'icon' => 'fa fa-shopping-bag', 'label' => 'Tas'),
             array('child' => TRUE, 'child_menu' => $dataKriteria, 'url' => '#','icon' => 'fa fa-braille', 'label' => 'Kriteria'),
+            array('child' => FALSE, 'child_menu' => NULL, 'url' => '#','icon' => 'fa fa-bullseye', 'label' => 'Target'),
         );
         return $menu;
     }
