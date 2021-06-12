@@ -4,53 +4,42 @@ class Sidebar
 {
     public function admin()
     {
-
-        $kumpulanData = array(
-            array('label' => 'Data Salon','url' => base_url('Admin/dataSalon')),
-            array('label' => 'Data Pengguna','url' => base_url('Admin/dataPengguna')),
-            array('label' => 'Data Hairstylist','url' => base_url('Admin/dataHr')),
+        $dataPengguna = array(
+            array('label' => 'Data Pengguna','url' => '#'),
+            array('label' => 'Tambah Pengguna','url' => '#'),
         );
+
+        $dataTas = array(
+            array('label' => 'Data Tas','url' => '#'),
+            array('label' => 'Tambah Tas','url' => '#'),
+        );
+
+        
+        $dataTarget = array(
+            array('label' => 'Data Target','url' => '#'),
+            array('label' => 'Tambah Target','url' => '#'),
+        );
+
+        $dataKriteria = array(
+            array('label' => 'Data Kriteria','url' => '#'),
+            array('label' => 'Tambah Kriteria','url' => '#'),
+        );
+
 
         $menu = array(
-            array('child' => FALSE, 'child_menu' => NULL, 'url' => base_url('Admin'),'icon' => 'fas fa-tachometer-alt', 'label' => 'Dashboard'),
-            array('child' => FALSE, 'child_menu' => NULL, 'url' => base_url('Admin/dataSalon'),'icon' => 'fa fa-building', 'label' => 'Salon'),
-            array('child' => TRUE, 'child_menu' => $kumpulanData, 'url' => '#','icon' => 'fa fa-folder', 'label' => 'Data'),
+            array('child' => FALSE, 'child_menu' => NULL, 'url' => base_url('Admin'),'icon' => 'fa fa-home', 'label' => 'Dashboard'),
+            array('child' => TRUE, 'child_menu' => $dataPengguna, 'url' => '#','icon' => 'fa fa-users', 'label' => 'Pengguna'),
+            array('child' => TRUE, 'child_menu' => $dataTas, 'url' => '#','icon' => 'fa fa-shopping-bag', 'label' => 'Tas'),
+            array('child' => TRUE, 'child_menu' => $dataTarget, 'url' => '#','icon' => 'fa fa-bullseye', 'label' => 'Target'),
+            array('child' => TRUE, 'child_menu' => $dataKriteria, 'url' => '#','icon' => 'fa fa-braille', 'label' => 'Kriteria'),
         );
-
         return $menu;
     }
 
-
-    public function hr()
+    public function umum()
     {
-        $menu = array(
-            array('child' => FALSE, 'child_menu' => NULL, 'url' => '#','icon' => 'fas fa-tachometer-alt', 'label' => 'Dashboard'),
-        );
-
-        return $menu;
+        # code...
     }
 
 
-    public function operator($status_jml_kriteria, $status_hr, $status_aspek)
-    {
-        $pm = array(
-            array('label' => 'Aspek','url' => base_url('Operator/aspek')),
-        );
-
-        if($status_jml_kriteria && $status_hr){
-            array_push($pm, array('label' => 'Bobot','url' =>base_url('Operator/bobot')));
-        }
-
-        if($status_aspek){
-            array_push($pm,  array('label' => 'Ranking','url' => base_url('Operator/vRanking')));
-        }
-
-        $menu = array(
-            array('child' => FALSE, 'child_menu' => NULL, 'url' => '#','icon' => 'fas fa-tachometer-alt', 'label' => 'Dashboard'),
-            array('child' => FALSE, 'child_menu' => NULL, 'url' => base_url('Operator/hairstylist'),'icon' => 'fas fa-chalkboard-teacher', 'label' => 'Hairstylist'),
-            array('child' => TRUE, 'child_menu' => $pm, 'url' => '#','icon' => 'fas fa-adjust', 'label' => 'Profile Matching'),
-        );
-
-        return $menu;
-    }
 }

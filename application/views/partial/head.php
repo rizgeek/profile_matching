@@ -37,7 +37,7 @@
 <body>
 
 	<script>
-		< ? = $this - > session - > flashdata("PESAN"); ? >
+		<?=$this->session->flashdata("PESAN"); ?>
 
 	</script>
 

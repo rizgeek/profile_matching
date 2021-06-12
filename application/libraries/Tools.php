@@ -14,8 +14,18 @@ class Tools
     public function view($halaman, $data = null)
     {
 
+        $level_akses = $this->CI->session->userdata('level_akses');
+        $sidebar['menu'] = '';
+        if($level_akses == 'admin'){
+            $sidebar['menu'] = $this->CI->sidebar->admin();
+        }elseif ($level_akses == 'umum') {
+            $sidebar['menu'] = $this->CI->sidebar->umum();
+        }else{
+            redirect(base_url('Login/Logout'));
+        }
+
         $this->CI->load->view('partial/head');
-        $this->CI->load->view('partial/sidebar');
+        $this->CI->load->view('partial/sidebar',$sidebar);
         $this->CI->load->view('partial/nav');
         $this->CI->load->view("dalam/$halaman",$data);
         $this->CI->load->view('partial/footer');
