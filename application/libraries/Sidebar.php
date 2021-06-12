@@ -5,8 +5,8 @@ class Sidebar
     public function admin()
     {
         $dataPengguna = array(
-            array('label' => 'Data Pengguna','url' => '#'),
-            array('label' => 'Tambah Pengguna','url' => '#'),
+            array('label' => 'Data Pengguna','url' => base_url('Admin/dataPengguna')),
+            array('label' => 'Tambah Pengguna','url' => base_url('Admin/createPengguna')),
         );
 
         $dataTas = array(

@@ -11,7 +11,7 @@
 	<!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 	<!-- Title -->
-	<title>Space - Responsive Admin Dashboard Template</title>
+	<title><?= nama_aplikasi ?></title>
 
 	<!-- Styles -->
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
@@ -26,20 +26,19 @@
 	<link href="<?=base_url("assets/")?>css/themes/admin2.css" rel="stylesheet">
 	<link href="<?=base_url("assets/")?>css/custom.css" rel="stylesheet">
 
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
+
+	<link href="<?= base_url("assets/") ?>plugins/datatables/css/jquery.datatables.min.css" rel="stylesheet" type="text/css"/>	
+    <link href="<?= base_url("assets/") ?>plugins/datatables/css/jquery.datatables_themeroller.css" rel="stylesheet" type="text/css"/>	
+    <link href="<?= base_url("assets/") ?>plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css"/>
+
+	<!-- sweat alert -->
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
 
-	<script>
-		<?=$this->session->flashdata("PESAN"); ?>
 
-	</script>
 
 	<!-- Page Container -->
 	<div class="page-container">
