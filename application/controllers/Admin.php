@@ -20,7 +20,7 @@ class Admin extends CI_Controller {
     
     public function index()
     {
-        echo "<h1>Admin</h1>";
+        $this->tools->view('0_blank');
     }
 
 }

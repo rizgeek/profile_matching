@@ -37,7 +37,7 @@
         <![endif]-->
     </head>
     <body>
-        <script><?=$this->session->flashdata('PESAN');?></script>
+        <script><?=$this->session->flashdata("PESAN");?></script>
         
     
         <!-- Page Container -->
