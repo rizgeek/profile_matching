@@ -109,6 +109,52 @@ class Admin extends CI_Controller {
         
     }
 
+    public function dataTas()
+    {
+        $data['data'] = $this->model->ambilSemuaData('tb_tas')->result();
+        $this->tools->view('3_dataTas',$data);
+    }
+
+    public function prosesCreateTas()
+    {
+        $this->form_validation->set_rules($this->validasi->cekInput('tas'));
+        if ($this->form_validation->run() == TRUE) {
+            $data = array(
+                'kd_tas' => $this->tools->generateKode('tb_tas','kd_tas','PMS'),
+                'nama_tas' => $this->input->post('nama_tas'),
+                'merk' => $this->input->post('merk'),
+                'warna' => $this->input->post('warna'),
+                'bahan' => $this->input->post('bahan'),
+            );
+
+            $this->model->inputData('tb_tas',$data);
+
+            $this->tools->Notif('Berhasil','Data Tas Berhasil disimpan','success','Admin/dataTas');
+        } else {
+            $this->tools->Notif('Gagal','Periksa Kemabali data inputan anda','error','Admin/dataTas');
+        }
+    }
+    
+    public function prosesUpdataTas()
+    {
+        $this->form_validation->set_rules($this->validasi->cekInput('update_tas'));
+        if ($this->form_validation->run() == TRUE) {
+            $where = array( 'kd_tas' => $this->input->post('kd_tas'));
+            $data = array(
+                'nama_tas' => $this->input->post('nama_tas'),
+                'merk' => $this->input->post('merk'),
+                'warna' => $this->input->post('warna'),
+                'bahan' => $this->input->post('bahan'),
+            );
+
+            $this->model->updateData('tb_tas',$data,$where);
+
+            $this->tools->Notif('Berhasil','Data Tas Berhasil disimpan','success','Admin/dataTas');
+        } else {
+            $this->tools->Notif('Gagal','Periksa Kemabali data inputan anda','error','Admin/dataTas');
+        }
+    }
+
 }
 
 /* End of file Admin.php */

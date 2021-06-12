@@ -34,7 +34,26 @@ class Validasi
                     ['field' => 'username', 'label' => 'username', 'rules' => 'required|min_length[10]'],
                     ['field' => 'level_akses', 'label' => 'level_akses', 'rules' => 'required|min_length[3]'],
                 ];
-                    break;
+                break;
+
+            case 'tas' :
+                $aturanValidasi = [
+                    ['field' => 'nama_tas', 'label' => 'nama_tas', 'rules' => 'required|min_length[3]'],
+                    ['field' => 'merk', 'label' => 'merk', 'rules' => 'required|min_length[3]'],
+                    ['field' => 'warna', 'label' => 'warna', 'rules' => 'required|min_length[3]'],
+                    ['field' => 'bahan', 'label' => 'bahan', 'rules' => 'required|min_length[3]'],
+                ];
+                break;
+
+            case 'update_tas' :
+                $aturanValidasi = [
+                    ['field' => 'kd_tas', 'label' => 'kd_tas', 'rules' => 'required|min_length[10]'],
+                    ['field' => 'nama_tas', 'label' => 'nama_tas', 'rules' => 'required|min_length[3]'],
+                    ['field' => 'merk', 'label' => 'merk', 'rules' => 'required|min_length[3]'],
+                    ['field' => 'warna', 'label' => 'warna', 'rules' => 'required|min_length[3]'],
+                    ['field' => 'bahan', 'label' => 'bahan', 'rules' => 'required|min_length[3]'],
+                ];
+                break;
 
             default:
                 echo "PERIKSA ATURAN VALIDASI YANG ANDA MASUKAN";

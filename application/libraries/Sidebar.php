@@ -10,7 +10,7 @@ class Sidebar
         );
 
         $dataTas = array(
-            array('label' => 'Data Tas','url' => '#'),
+            array('label' => 'Data Tas','url' => base_url('Admin/dataTas')),
             array('label' => 'Tambah Tas','url' => '#'),
         );
 
