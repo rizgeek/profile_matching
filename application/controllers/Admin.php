@@ -303,15 +303,34 @@ class Admin extends CI_Controller {
         
     }
 
+    public function nilaiTas()
+    {
+        $data['tas'] = $this->cekInputTas();
+        $data['nilai'] = $this->nilaiTarget();
+        $data['target'] = $this->model->ambilSemuaData('tb_target')->result();
+
+        $this->tools->view('7_tambahDataNilai',$data);
+    }
+
+    public function prosesCreateNilai()
+    {
+        var_dump($_POST);
+    }
 
 
 
-    
     // PROFILE MATCHING
 
     private function nilaiTarget()
     {
         return ['Sangat Buruk', 'Buruk','Cukup Baik', 'Baik', 'Sangat Baik'];
+    }
+
+    private function cekInputTas()
+    {
+        $query = "SELECT tb_tas.* FROM tb_tas LEFT JOIN tb_nilai ON tb_tas.kd_tas = tb_nilai.kd_tas WHERE tb_nilai.kd_tas IS NULL";
+        $data = $this->model->query($query)->result();
+        return $data;
     }
 
 

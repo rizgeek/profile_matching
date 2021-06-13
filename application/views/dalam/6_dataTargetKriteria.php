@@ -32,7 +32,7 @@
 
 							<div class="form-group">
 								<label for="bobot_target">Bobot Target</label>
-								<select class="form-control" name="bobot_target" id="bobot_target">
+								<select class="form-control" name="bobot_target" id="bobot_target" required>
 									<option <?= $update_data == null ? 'selected' : '' ?> disabled>Pilih salah satu</option>
 									<?php for( $i = 0; $i < count($nilai_target); $i++): $tmp = $i+1; ?>
 									<option 
@@ -45,7 +45,7 @@
 
 							<div class="form-group">
 								<label for="tipe">Type Core</label>
-								<select class="form-control" name="tipe" id="tipe" value="<?= $update_data != null ? $update_data->tipe : '' ?>">
+								<select class="form-control" name="tipe" id="tipe" value="<?= $update_data != null ? $update_data->tipe : '' ?>" required>
 									<option  <?= $update_data == null ? 'selected' : '' ?> disabled>Pilih salah satu</option>
 									<option 
 										<?= $update_data != null ? $update_data->tipe == 'primary' ? 'selected' : '' : '' ?>

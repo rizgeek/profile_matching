@@ -45,7 +45,7 @@
 
                     <div class="form-group">
 						<label for="level_akses">Level Akses</label>
-						<select class="form-control" name="level_akses" id="level_akses">
+						<select class="form-control" name="level_akses" id="level_akses" required>
 							<option selected disabled>Pilih salah satu</option>
 							<option value = "admin">Admin</option>
 							<option value = "umum">Umum</option>

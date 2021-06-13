@@ -16,6 +16,7 @@
 								<th>No</th>
 								<th>Kode Kriteria</th>
 								<th>Kriteria</th>
+								<th>Bobot</th>
 								<th>Core Factor</th>
 								<th>Secondary Factor</th>
 								<th>Opsi</th>
@@ -26,6 +27,7 @@
                                 <th>No</th>
 								<th>Kode Kriteria</th>
 								<th>Kriteria</th>
+								<th>Bobot</th>
 								<th>Core Factor</th>
 								<th>Secondary Factor</th>
 								<th>Opsi</th>
@@ -37,6 +39,7 @@
                                     <td><?=$no++?></td>
                                     <td><?=$kd_kriteria = $dt->kd_kriteria?></td>
                                     <td><?=$kriteria = $dt->kriteria?></td>
+                                    <td><?=$kriteria = $dt->bobot?></td>
                                     <td><?=$core = $dt->core?></td>
                                     <td><?=$secondary = $dt->secondary?></td>
                                     <td>
