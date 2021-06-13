@@ -61,3 +61,20 @@
 	</div>
 </div>
 
+<script>
+	function updateData(kd_kriteria) {
+		Swal.fire({
+			title: 'Yakin ingin melakukan update data?',
+			text: "Tekan Iya jika yakin!",
+			icon: 'question',
+			showCancelButton: false,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Iya, Update data'
+			}).then((result) => {
+			if (result.isConfirmed) {
+				window.location.href = "<?=base_url('Admin/updateDataKriteria/')?>"+kd_kriteria;
+			}
+		})
+	}
+</script>

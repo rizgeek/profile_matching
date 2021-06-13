@@ -182,11 +182,46 @@ class Admin extends CI_Controller {
 
             $this->model->inputData('tb_kriteria',$data);
             
-            $this->tools->Notif('Berhasil','Data Berhasil Disimpn','success','Admin/createKriteria');
+            $this->tools->Notif('Berhasil','Data Berhasil Disimpan','success','Admin/createKriteria');
         } else {
             $this->tools->Notif('Gagal','Periksa Kemabali data yang anda inputkan','error','Admin/createKriteria');
         }
         
+    }
+
+    public function updateDataKriteria()
+    {
+        $kd_kriteria = $this->uri->segment(3);
+        $data['kriteria'] = $this->model->ambilDataTertentu('tb_kriteria',['kd_kriteria' => $kd_kriteria])->row();
+        if($data['kriteria'] != NULL){
+            $data['bobot'] = $this->model->query('SELECT sum(bobot) as bobot from tb_kriteria')->row();
+            $this->tools->view('4_tambahKriteria',$data);
+        }else{
+            redirect(base_url('Login/Logout'));
+        }
+    }
+
+    public function prosesUpdateKriteria()
+    {
+        $this->form_validation->set_rules($this->validasi->cekInput('kriteria'));
+        
+        if ($this->form_validation->run() == TRUE) {
+
+            $where = ['kd_kriteria' => $this->input->post('kd_kriteria')];
+            
+            $data = array(
+                'kriteria' => $this->input->post('kriteria'),
+                'bobot' => $this->input->post('bobot'),
+                'core' => $this->input->post('core'),
+                'secondary' => $this->input->post('secondary')
+            );
+
+            $this->model->updateData('tb_kriteria',$data,$where);
+            
+            $this->tools->Notif('Berhasil','Data Berhasil Disimpan','success','Admin/dataKriteria');
+        } else {
+            $this->tools->Notif('Gagal','Periksa Kemabali data yang anda inputkan','error','Admin/dataKriteria');
+        }   
     }
 
 }
