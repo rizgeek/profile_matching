@@ -46,6 +46,7 @@
                                                 <i class="fa fa-spin fa-refresh"></i> Action <span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu" role="menu">
+                                                <li><a onclick="tambahTarget('<?=$kd_kriteria?>')" href="#">Tambah Target</a></li>
                                                 <li><a onclick="updateData('<?=$kd_kriteria?>')" href="#">Update Data</a></li>
                                                 <li><a onclick="hapus( '<?=base_url('Admin/hapusData')?>','kd_kriteria','<?=$kd_kriteria?>','tb_kriteria','dataKriteria')" href="#">Hapus</a></li>
                                             </ul>
@@ -74,6 +75,22 @@
 			}).then((result) => {
 			if (result.isConfirmed) {
 				window.location.href = "<?=base_url('Admin/updateDataKriteria/')?>"+kd_kriteria;
+			}
+		})
+	}
+
+	function tambahTarget(kd_kriteria) {
+		Swal.fire({
+			title: 'Yakin ingin tambah data target?',
+			text: "Tekan Iya jika yakin!",
+			icon: 'question',
+			showCancelButton: false,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Iya, Update data'
+			}).then((result) => {
+			if (result.isConfirmed) {
+				window.location.href = "<?=base_url('Admin/tambahDataTarget/')?>"+kd_kriteria;
 			}
 		})
 	}

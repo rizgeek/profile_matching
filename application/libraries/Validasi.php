@@ -64,6 +64,15 @@ class Validasi
                 ];
                 break;
 
+            case 'target':
+                $aturanValidasi = [
+                    ['field' => 'kd_kriteria', 'label' => 'kd_kriteria', 'rules' => 'required|min_length[10]'],
+                    ['field' => 'target', 'label' => 'target', 'rules' => 'required|min_length[3]'],
+                    ['field' => 'bobot_target', 'label' => 'bobot_target', 'rules' => 'required|min_length[1]'],
+                    ['field' => 'tipe', 'label' => 'tipe', 'rules' => 'required|min_length[2]'],
+                ];
+                break;
+
             default:
                 echo "PERIKSA ATURAN VALIDASI YANG ANDA MASUKAN";
                 break;

@@ -224,6 +224,51 @@ class Admin extends CI_Controller {
         }   
     }
 
+    public function tambahDataTarget()
+    {
+        $where = ['kd_kriteria' =>  $this->uri->segment(3)];
+        $data['kriteria'] = $this->model->ambilDataTertentu('tb_kriteria',$where)->row();
+        if($data['kriteria'] != null){
+            $data['nilai_target'] = $this->nilaiTarget();
+            $data['data_target'] = $this->model->ambilDataTertentu('tb_target',$where)->result();
+            $this->tools->view('6_dataTargetKriteria',$data);
+        }else{
+            redirect(base_url('Login/Logout'));
+        }
+        
+    }
+
+    public function prosesCreateTarget()
+    {
+        $kd_kriteria = $this->input->post('kd_kriteria');
+        $this->form_validation->set_rules($this->validasi->cekInput('target'));
+        if ($this->form_validation->run() == TRUE) {
+            $data = array(
+                'kd_target' =>  $this->tools->generateKode('tb_target','kd_target','PMT'),
+                'kd_kriteria' =>  $kd_kriteria,
+                'target' => $this->input->post('target'),
+                'bobot_target' => $this->input->post('bobot_target'),
+                'tipe' => $this->input->post('tipe'),
+            );
+
+            $this->model->inputData('tb_target',$data);
+            $this->tools->Notif('Berhasil','Data Berhasil disimpan','success','Admin/tambahDataTarget/'.$kd_kriteria);
+        } else {
+            $this->tools->Notif('Gagal','Periksa Kembali Inputan yang anda masukan','error','Admin/tambahDataTarget/'.$kd_kriteria);
+        }
+        
+        
+    }
+
+
+    // PROFILE MATCHING
+
+    private function nilaiTarget()
+    {
+        return ['Sangat Buruk', 'Buruk','Cukup Baik', 'Baik', 'Sangat Baik'];
+    }
+
+
 }
 
 /* End of file Admin.php */
