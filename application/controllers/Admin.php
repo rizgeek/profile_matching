@@ -260,7 +260,53 @@ class Admin extends CI_Controller {
         
     }
 
+    public function updateDataTarget()
+    {
+        $where = ['kd_kriteria' =>  $this->uri->segment(3)];
+        $where_target = ['kd_target' =>  $this->uri->segment(4)];
 
+        $data['kriteria'] = $this->model->ambilDataTertentu('tb_kriteria',$where)->row();
+        $data['update_data'] = $this->model->ambilDataTertentu('tb_target',$where_target)->row();
+
+        if($data['kriteria'] != null ||  $data['update_data'] != null){
+            $data['nilai_target'] = $this->nilaiTarget();
+            $data['data_target'] = $this->model->ambilDataTertentu('tb_target',$where)->result();
+            $this->tools->view('6_dataTargetKriteria',$data);
+        }else{
+            redirect(base_url('Login/Logout'));
+        }
+        
+    }
+
+    public function prosesUpdateTarget()
+    {
+        $this->form_validation->set_rules($this->validasi->cekInput('update_target'));
+
+        $kd_kriteria = $this->input->post('kd_kriteria');
+        $kd_target = $this->input->post('kd_target');
+
+        if ($this->form_validation->run() == TRUE) {
+            
+            $data = array(
+                'kd_kriteria' =>  $kd_kriteria,
+                'target' => $this->input->post('target'),
+                'bobot_target' => $this->input->post('bobot_target'),
+                'tipe' => $this->input->post('tipe'),
+            );
+
+            $this->model->updateData('tb_target',$data,['kd_target' => $kd_target]);
+            $this->tools->Notif('Berhasil','Data Berhasil disimpan','success','Admin/tambahDataTarget/'.$kd_kriteria);
+
+        } else {
+            $this->tools->Notif('Gagal','Periksa Kemabali Inputan Anda','error','Admin/tambahDataTarget/'."$kd_kriteria/"."$kd_target");
+        }
+        
+    }
+
+
+
+
+    
     // PROFILE MATCHING
 
     private function nilaiTarget()
